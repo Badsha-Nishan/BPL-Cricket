@@ -5,7 +5,7 @@ import Coin from "./assets/dollar-1.png";
 function App() {
   return (
     <>
-      <div className="navbar w-11/12 mx-auto mt-6">
+      <div className="navbar w-11/12 mx-auto mt-4">
         <div className="flex-1">
           <a className="text-xl">
             <img className="h-16 w-16" src={navImg} alt="Nave Logo" />
