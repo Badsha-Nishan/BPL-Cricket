@@ -15,7 +15,7 @@ function App() {
     <>
       <NavBar></NavBar>
       <Suspense
-        fallback={<span className="loading loading-spinner text-error"></span>}
+        fallback={<div className="text-center"><span className="loading loading-spinner text-error"></span></div>}
       >
         <AvailablePlayers PlayerPromise={PlayerPromise}></AvailablePlayers>
       </Suspense>
