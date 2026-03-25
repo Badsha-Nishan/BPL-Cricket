@@ -3,19 +3,27 @@ import userImg from "../../assets/user-1.png";
 import flagIcon from "../../assets/report-1.png";
 import { toast } from "react-toastify";
 
-const Card = ({ player, setCoin, coin, selectedPlayers, setSelectedPlayers }) => {
+const Card = ({
+  player,
+  setCoin,
+  coin,
+  selectedPlayers,
+  setSelectedPlayers,
+}) => {
   const [selected, setSelected] = useState(false);
   const handleChoosePlayer = () => {
     let newCoin = coin - player.price;
     if (newCoin >= 0) {
-      toast.success(`${player.player_name} is Selected`)
+      toast.success(`${player.player_name} is Selected`, {
+        position: "top-left",
+      });
       setCoin(coin - player.price);
     } else {
       toast.error("Insufficient Balance");
       return;
     }
     setSelected(true);
-    setSelectedPlayers([...selectedPlayers, player])
+    setSelectedPlayers([...selectedPlayers, player]);
   };
   return (
     <div className="card bg-base-100 shadow-sm p-4">

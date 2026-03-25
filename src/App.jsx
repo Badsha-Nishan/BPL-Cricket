@@ -4,6 +4,8 @@ import AvailablePlayers from "./components/AvailablePlayers/AvailablePlayers";
 import NavBar from "./components/NavBar/NavBar";
 import SelectedPlayers from "./components/SelectedPlayers/SelectedPlayers";
 import { ToastContainer } from "react-toastify";
+import Banner from "./components/NavBar/Banner";
+import Footer from "./components/Footer";
 
 const FetchPlayers = async () => {
   const res = await fetch("/players.json");
@@ -16,6 +18,7 @@ function App() {
   return (
     <>
       <NavBar coin={coin}></NavBar>
+      <Banner></Banner>
       <Suspense
         fallback={
           <div className="text-center">
@@ -30,6 +33,7 @@ function App() {
         ></AvailablePlayers>
       </Suspense>
       <ToastContainer />
+      <Footer></Footer>
     </>
   );
 }
