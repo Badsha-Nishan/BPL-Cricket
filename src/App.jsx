@@ -3,6 +3,7 @@ import "./App.css";
 import AvailablePlayers from "./components/AvailablePlayers/AvailablePlayers";
 import NavBar from "./components/NavBar/NavBar";
 import SelectedPlayers from "./components/SelectedPlayers/SelectedPlayers";
+import { ToastContainer } from "react-toastify";
 
 const FetchPlayers = async () => {
   const res = await fetch("/players.json");
@@ -22,8 +23,13 @@ function App() {
           </div>
         }
       >
-        <AvailablePlayers PlayerPromise={PlayerPromise} setCoin={setCoin} coin={coin}></AvailablePlayers>
+        <AvailablePlayers
+          PlayerPromise={PlayerPromise}
+          setCoin={setCoin}
+          coin={coin}
+        ></AvailablePlayers>
       </Suspense>
+      <ToastContainer />
     </>
   );
 }
