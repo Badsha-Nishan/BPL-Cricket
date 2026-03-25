@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import userImg from "../../assets/user-1.png";
 import flagIcon from "../../assets/report-1.png";
 
-const Card = ({ player, setCoin, coin }) => {
+const Card = ({ player, setCoin, coin, selectedPlayers, setSelectedPlayers }) => {
   const [selected, setSelected] = useState(false);
   const handleChoosePlayer = () => {
     let newCoin = coin - player.price;
@@ -13,6 +13,7 @@ const Card = ({ player, setCoin, coin }) => {
       return;
     }
     setSelected(true);
+    setSelectedPlayers([...selectedPlayers, player])
   };
   return (
     <div className="card bg-base-100 shadow-sm p-4">

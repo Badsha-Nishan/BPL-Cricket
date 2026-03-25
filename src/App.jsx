@@ -24,7 +24,6 @@ function App() {
       >
         <AvailablePlayers PlayerPromise={PlayerPromise} setCoin={setCoin} coin={coin}></AvailablePlayers>
       </Suspense>
-      <SelectedPlayers></SelectedPlayers>
     </>
   );
 }
