@@ -1,6 +1,5 @@
 import React from "react";
-import { FaUser } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
+import SelectedCards from "../AvailablePlayers/SelectedCards";
 
 const SelectedPlayers = ({
   selectedPlayers,
@@ -16,47 +15,22 @@ const SelectedPlayers = ({
     const restCoin = coin + player.price;
     setCoin(restCoin);
   };
-  const emptyPlayers = () => {
-    if(selectedPlayers.length === 0) {
-        <div>
-            <h2>No Selected</h2>
-        </div>
-    }
-  }
   return (
     <div>
-      {selectedPlayers.map((player, index) => {
-        return (
-          <div
+      {selectedPlayers.length === 0 ? (
+        <div className="flex justify-center items-center flex-col mt-14">
+          <h2 className="text-2xl font-bold mb-3">No Player Selected Yet</h2>
+          <p>Go to available tab to select players</p>
+        </div>
+      ) : (
+        selectedPlayers.map((player, index) => (
+          <SelectedCards
             key={index}
-            className="border rounded-md mb-4 w-11/12 mx-auto mt-5 flex justify-between items-center p-4"
-          >
-            <div className="flex items-center gap-4">
-              <img
-                className="w-[75px] h-auto rounded-md"
-                src={player.player_img}
-                alt={player.player_name}
-              />
-              <div>
-                <h2 className="flex items-center gap-3 text-xl font-bold">
-                  <FaUser /> {player.player_name}
-                </h2>
-                <p>{player.playing_role}</p>
-              </div>
-            </div>
-            <div>
-              <button
-                onClick={() => {
-                  handleDeletePlayer(player);
-                }}
-                className="btn text-xl text-red-500"
-              >
-                <MdDelete />
-              </button>
-            </div>
-          </div>
-        );
-      })}
+            player={player}
+            handleDeletePlayer={handleDeletePlayer}
+          ></SelectedCards>
+        ))
+      )}
     </div>
   );
 };
